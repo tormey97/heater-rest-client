@@ -28,8 +28,7 @@ def set_group_state(key, group, active):
         
         
 def main():
-    api_key = API_KEY
-    key = api_key[0]["success"]["username"]
+    key = API_KEY
     state = False
     while True:
         available_groups = get_groups(key)
