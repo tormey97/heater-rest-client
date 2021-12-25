@@ -3,7 +3,7 @@ import requests
 
 def get_api_key(): 
     request_path = LOCALHOST + "/api"
-    r = requests.get(request_path)
+    r = requests.post(request_path, {"devicetype": "my application"})
     if r.status_code == 200:
         return r.text
     else:
