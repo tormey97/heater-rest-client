@@ -37,5 +37,11 @@ def main():
     print(api_key, "????")
     key = api_key[0]["success"]["username"]
     set_group_state(key, True)
+    state = False
+    while True:
+        input("press a button")
+        state = not state
+        set_group_state(key, state)
+        
 
 main()
