@@ -20,3 +20,5 @@ def main():
     if api_key is None:
         print("Unable to get API key")
     print(api_key)
+
+main()
