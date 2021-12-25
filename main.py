@@ -7,6 +7,7 @@ def get_api_key():
     if r.status_code == 200:
         return r.text
     else:
+        print(r.status_code, r.text)
         return None
 
 def get_groups():
