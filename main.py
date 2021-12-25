@@ -1,5 +1,6 @@
 LOCALHOST = "http://192.168.0.29:80"
 SUCCESS_CODE = 200
+API_KEY = "123DD1E39A"
 import requests
 import json
 
@@ -26,12 +27,8 @@ def set_group_state(key, group, active):
         print(r.status_code, r.text)
         
         
-
 def main():
-    api_key = get_api_key()
-    if api_key is None:
-        print("Unable to get API key")
-    print(api_key, "????")
+    api_key = API_KEY
     key = api_key[0]["success"]["username"]
     state = False
     while True:
