@@ -20,13 +20,10 @@ def get_groups(key):
         return decoded_response
 
 
-def set_group_state(key, active):
-    groups = get_groups(key)
-    for group in groups:
-        print(groups[group])
-        r = requests.put(LOCALHOST + "/api/" + key + "/groups/" + group + "/action", json={"on": active})
-        if r.status_code != SUCCESS_CODE:
-            print(r.status_code, r.text)
+def set_group_state(key, group, active):
+    r = requests.put(LOCALHOST + "/api/" + key + "/groups/" + group + "/action", json={"on": active})
+    if r.status_code != SUCCESS_CODE:
+        print(r.status_code, r.text)
         
         
 
@@ -39,9 +36,13 @@ def main():
     set_group_state(key, True)
     state = False
     while True:
-        input("press a button")
+        available_groups = get_groups(key)
+        print("Available groups:")
+        for group in available_groups:
+            print("Group ID: ", group, "| Group name: ", available_groups[group]["name"])
+        group_id = input("press a button")
         state = not state
-        set_group_state(key, state)
+        set_group_state(key, group_id, state)
         
 
 main()
