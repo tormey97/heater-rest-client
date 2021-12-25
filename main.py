@@ -24,7 +24,7 @@ def set_group_state(key, active):
     groups = get_groups(key)
     for group in groups:
         print(group)
-        r = requests.put(LOCALHOST + "/api/groups/" + group + "/action", json={"on": active})
+        r = requests.put(LOCALHOST + "/api/" + key + "/groups/" + group + "/action", json={"on": active})
         if r.status_code != SUCCESS_CODE:
             print(r.status_code, r.text)
         
