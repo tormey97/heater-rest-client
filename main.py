@@ -35,7 +35,7 @@ def main():
     if api_key is None:
         print("Unable to get API key")
     print(api_key, "????")
-    key = api_key["success"]["username"]
+    key = api_key[0]["success"]["username"]
     set_group_state(key, True)
 
 main()
