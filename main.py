@@ -1,4 +1,4 @@
-LOCALHOST = "http://localhost:8080"
+LOCALHOST = "http://192.168.0.29:80"
 import requests
 
 def get_api_key(): 
