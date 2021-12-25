@@ -33,7 +33,6 @@ def main():
         print("Unable to get API key")
     print(api_key, "????")
     key = api_key[0]["success"]["username"]
-    set_group_state(key, True)
     state = False
     while True:
         available_groups = get_groups(key)
